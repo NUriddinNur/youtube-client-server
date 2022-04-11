@@ -20,4 +20,4 @@ app.get('/register', (req, res) => res.render('register'))
 app.get('/admin', (req, res) => res.render('admin'))
 
 
-app.listen(PORT, () => console.log(`server running http://192.168.0.106:${PORT}`))
+app.listen(PORT)
