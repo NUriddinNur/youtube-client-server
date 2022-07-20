@@ -1,4 +1,4 @@
-const backendApi = 'http://localhost:2000'
+const backendApi = 'http://165.22.66.59:2000'
 
 async function request(route, method, body) {
     try {
