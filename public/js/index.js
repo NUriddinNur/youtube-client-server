@@ -95,7 +95,7 @@ exitIcon.onclick = () => {
 }
 
 
-serchForm.onclick = (event) => {
+serchForm.onkeyup = (event) => {
     event.preventDefault()
         if(searchInput.value != "") {
             search(searchInput.value)            
@@ -103,16 +103,14 @@ serchForm.onclick = (event) => {
 }
 
 async function search(data) {
-
     let {videos} = await request(`/data?search=${data}`, 'GET')
         clearInterval(interval)
-        renderVideo(videos);
+        console.log(videos)
+        renderVideo(videos)
 }
 
 
-
 // let voice = new webkitSpeechRecognition()
-
 
 // voice.lang = 'uz-UZ'
 // voice.continious = false

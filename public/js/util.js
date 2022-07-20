@@ -1,4 +1,4 @@
-const backendApi = 'https://youtube-back-end.herokuapp.com'
+const backendApi = 'http://localhost:2000'
 
 async function request(route, method, body) {
     try {
@@ -27,8 +27,9 @@ async function request(route, method, body) {
 
         return await response.json()
     } catch (error) {
-        messageText.textContent = error.message
-        messageText.style.color = 'red'
+
+        // messageText.textContent = error.message
+        // messageText.style.color = 'red'
         return
     }
 }

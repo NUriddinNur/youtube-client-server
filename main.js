@@ -19,5 +19,4 @@ app.get('/', (req, res) => res.render('index'))
 app.get('/register', (req, res) => res.render('register'))
 app.get('/admin', (req, res) => res.render('admin'))
 
-
-app.listen(PORT)
+app.listen(PORT, () => console.log('server is ready at http://localhost:' + PORT))

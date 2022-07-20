@@ -1,6 +1,4 @@
 
-
-
 submitButton.onclick = async (event) => {
     event.preventDefault()
 
@@ -35,7 +33,7 @@ async function renderVideo() {
         list += `
             <li class="video-item">
                 <video src="${backendApi + video.videoUrl}" controls=""></video>
-                <p id="putTitle" onkeydown="put(${video.videoId})" class="content" data-id="2" contenteditable="true">${video.videoTitle}</p>
+                <p onkeydown="put(${video.videoId}, ${this})" class="content" data-id="${video.videoId}" contenteditable="true">${video.videoTitle}</p>
                 <img onclick="deleteVideo(${video.videoId})" src="./img/delete.png" width="25px" alt="upload" class="delete-icon" data-id="2">
             </li>
         `
@@ -58,9 +56,14 @@ async function deleteVideo(id) {
 }
 
 
+function put(id, element) {
+    console.log(element);
+    const title = document.querySelector(`[data-id='${id}']`)
+    const formData = new FormData()
+	formData.append('videoId', id)
+	formData.append('title', title.innerHTML)
+    request('/videos', 'PUT', formData)
+}
+
+
 renderVideo()
-
-
-
-
-
